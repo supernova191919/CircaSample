@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Translator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 开机动画 -->
+  <div id="splash-screen">
+    <div class="circle-text">
+      <span>N</span><span>B</span><span>R</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span>
+    </div>
+  </div>  
+
+  <!-- 主界面 -->
+  <div id="main-content" style="display: none;">
+    <div class="options">
+      <!-- Translate 图标 -->
+      <div class="option option-translate" onclick="showTranslator()">
+        <img src="images/translate_icon.png" alt="Translate Icon">
+      </div>
+  
+      <!-- Lexicon 图标 -->
+      <div class="option option-lexicon" onclick="showDictionary()">
+        <img src="images/lexicon_icon.png" alt="Lexicon Icon">
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- 翻译界面 -->
+  <div id="translator" style="display: none;">
+    <button onclick="showHome()" class="return-button">Return</button>
+  
+    <div class="translate-container">
+      <!-- 输入区域 -->
+      <div class="input-area">
+        <label for="inputText" class="input-placeholder">type here...</label>
+        <input type="text" id="inputText">
+        <button onclick="translateText()" class="translate-button">Translate</button>
+      </div>
+  
+      <!-- 分隔线 -->
+      <div class="separator-line"></div>
+  
+      <!-- 翻译结果区域 -->
+      <div class="result-area">
+        <div id="notes" class="notes">Post notes and explanations</div>
+        <div id="outputText" class="translation-result"></div>
+      </div>
+    </div>
+  </div>  
+  
+  
+
+  <!-- 词典界面 -->
+  <div id="dictionary" style="display: none;">
+    <button onclick="showHome()">Return</button>
+    <h2>Lexicon</h2>
+    <ul id="dictionaryList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

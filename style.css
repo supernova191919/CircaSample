@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('fonts/my_custom_font.woff') format('woff');
+}
+
+/* 全局样式 */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 开机动画 */
+#splash-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.5em;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle-text {
+  position: relative;
+  width: 300px; /* 圆形直径 */
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateCircle 25s linear infinite; /* 动画时长为20s */
+}
+
+.circle-text span {
+  position: absolute;
+  opacity: 0;
+  font-weight: bold;
+  color: #333; /* 字体颜色 */
+  font-size: 1.5em; /* 字体大小 */
+  transform-origin: bottom center; /* 设置旋转中心在字母底部 */
+  animation: fadeIn 0.5s forwards;
+  font-family: 'MyCustomFont', Arial, sans-serif; /* 使用自定义字体 */
+}
+
+/* 设置每个字母的位置和旋转角度 */
+.circle-text span:nth-child(1) { transform: rotate(0deg) translate(150px) rotate(0deg); animation-delay: 0s; }
+.circle-text span:nth-child(2) { transform: rotate(36deg) translate(150px) rotate(-36deg); animation-delay: 0.1s; }
+.circle-text span:nth-child(3) { transform: rotate(72deg) translate(150px) rotate(-72deg); animation-delay: 0.2s; }
+.circle-text span:nth-child(4) { transform: rotate(108deg) translate(150px) rotate(-108deg); animation-delay: 0.3s; }
+.circle-text span:nth-child(5) { transform: rotate(144deg) translate(150px) rotate(-144deg); animation-delay: 0.4s; }
+.circle-text span:nth-child(6) { transform: rotate(180deg) translate(150px) rotate(-180deg); animation-delay: 0.5s; }
+.circle-text span:nth-child(7) { transform: rotate(216deg) translate(150px) rotate(-216deg); animation-delay: 0.6s; }
+.circle-text span:nth-child(8) { transform: rotate(252deg) translate(150px) rotate(-252deg); animation-delay: 0.7s; }
+.circle-text span:nth-child(9) { transform: rotate(288deg) translate(150px) rotate(-288deg); animation-delay: 0.8s; }
+.circle-text span:nth-child(10) { transform: rotate(324deg) translate(150px) rotate(-324deg); animation-delay: 0.9s; }
+
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(1080deg); } /* 旋转3圈 */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 主界面和按钮样式 */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* 调整图标之间的距离 */
+  margin-top: 20vh;
+}
+
+.option-translate img {
+  width: 200px; /* Translate 图标的宽度 */
+  height: auto; /* 保持比例 */
+}
+
+.option-lexicon img {
+  width: 130px; /* Lexicon 图标的宽度 */
+  height: auto; /* 保持比例 */
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 300px; /* 图标之间的距离 */
+  margin-top: 35vh;
+}
+
+.option p {
+  font-size: 1em;
+  color: #333;
+  margin: 0;
+}
+
+/* 翻译界面样式 */
+#translator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.return-button {
+  font-size: 1em;
+  margin-bottom: 10px;
+  border: none;
+  background: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.translate-container {
+  position: relative;
+  width: 500px;
+  height: 400px; /* 增加高度 */
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-area {
+  position: relative;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平居中 */
+}
+
+.input-placeholder {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+#inputText {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 5px;
+  font-size: 1em;
+  outline: none;
+  text-align: center;
+}
+
+.translate-button {
+  margin-top: 10px; /* 与输入框保持距离 */
+  padding: 10px 20px;
+  font-size: 1em;
+  border: 1px solid #333;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  align-self: center; /* 居中对齐 */
+}
+
+.separator-line {
+  width: 90%;
+  height: 2px;
+  background-color: #333;
+  margin: 20px 0;
+}
+
+.result-area {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.notes {
+  width: 40%; /* 左边空出40%的宽度用于注释 */
+  font-size: 0.9em;
+  color: #777;
+  text-align: left;
+  padding-right: 10px; /* 与翻译结果保持一点间距 */
+}
+
+.translation-result {
+  width: 60%; /* 右边部分显示翻译结果 */
+  font-size: 10em;
+  color: #333;
+  font-family: 'MyCustomFont', Arial, sans-serif;
+}
+
+/* 字典界面样式 */
+#dictionary {
+  text-align: center;
+}
+
+#dictionary h2 {
+  margin-bottom: 20px;
+}
+
+#dictionaryList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#dictionaryList li {
+  font-size: 1.2em;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.english-word {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin-right: 10px;
+}
+
+.custom-language-word {
+  font-family: 'MyCustomFont', Arial, sans-serif;
+  color: #555;
+  margin-left: 10px;
+}
+
+/* iPad 竖屏样式 */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .translate-container {
+    width: 90%; /* 调整为 iPad 屏幕宽度的 90% */
+  }
+}
+
+/* iPad 横屏样式 */
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  .translate-container {
+    width: 70%; /* 调整为 iPad 屏幕宽度的 70% */
+  }
+}
